@@ -7,6 +7,7 @@ try {
   const slackWebhookUrl = core.getInput('slack-webhook-url');
   const webhook = new IncomingWebhook(slackWebhookUrl)
   const nameToGreet = core.getInput('who-to-greet');
+  console.log("This has your new changes!");
   (async () => {
     await webhook.send({
       text: 'Message from custom action',
