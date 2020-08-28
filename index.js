@@ -71,7 +71,7 @@ try {
   }
   
   (async function () {
-    if (!yourWebHookURL) {
+    if (!slackWebhookUrl) {
       console.error('Please fill in your Webhook URL');
     }
   
