@@ -7,6 +7,8 @@ const fs = require('fs');
 try {
   console.log("This has your new changes!");
   const slackWebhookUrl = core.getInput('slack-webhook-url');
+  const currentPath = process.cwd();
+  console.log("Current path is:", currentPath);
   fs.readdir('.', function (err, files) {
     //handling error
     if (err) {
@@ -100,8 +102,8 @@ try {
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
 
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  // const payload = JSON.stringify(github.context.payload, undefined, 2)
+  // console.log(`The event payload: ${payload}`);
 } catch (err) {
   core.setFailed(err.message);
 }
