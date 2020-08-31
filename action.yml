@@ -5,6 +5,10 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  errors:
+    description: 'Build errors'
+    required: true
+    default: 'nada'
 outputs:
   time: # id of output
     description: 'The time we greeted you'
