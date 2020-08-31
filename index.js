@@ -1,12 +1,23 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const https = require('https');
-// const fs = require('fs');
+const fs = require('fs');
+// const path = require('path');
 
 try {
   console.log("This has your new changes!");
   const slackWebhookUrl = core.getInput('slack-webhook-url');
-
+  fs.readdir('.', function (err, files) {
+    //handling error
+    if (err) {
+        return console.log('Unable to scan directory: ' + err);
+    }
+    //listing all files using forEach
+    files.forEach(function (file) {
+        // Do whatever you want to do with the file
+        console.log(file); 
+    });
+  });
   const userAccountNotification = {
     "username": "Error notifier", // This will appear as user name who posts the message
     "text": "Sample error message", // text
