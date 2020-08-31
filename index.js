@@ -22,7 +22,7 @@ try {
 
   const resultFile = core.getInput('errors');
   console.log("file data: ", fs.readFileSync(resultFile, 'utf8'));
-
+  fs.writeFileSync('action-output.txt', 'This is from inside the action!');
   const nameToGreet = core.getInput('who-to-greet');
   console.log(`Hello ${nameToGreet}!`);
 
