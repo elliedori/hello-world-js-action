@@ -10,6 +10,16 @@ try {
   const currentPath = process.cwd();
   console.log("Current path is:", currentPath);
 
+  fs.readdir('.', function (err, files) {
+    console.log("Files in directory are: ");
+    if (err) {
+        return console.log('Unable to scan directory: ' + err);
+    }
+    files.forEach(function (file) {
+        console.log(file);
+    });
+  });
+
   const resultFile = core.getInput('errors');
   console.log("file data: ", fs.readFileSync(resultFile));
 
