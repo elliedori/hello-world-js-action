@@ -20,15 +20,11 @@ try {
     });
   });
 
-  const resultFile = core.getInput('errors');
-  console.log("file data: ", fs.readFileSync(resultFile, 'utf8'));
+  const jobName = core.getInput('job-name');
+  // console.log("file data: ", fs.readFileSync(resultFile, 'utf8'));
   fs.writeFileSync('action-output.txt', 'This is from inside the action!');
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
 
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-
+  fs.writeFileSync(`job-${jobName}.txt`, `:no_entry_sign: *${jobName}* failed`);
   // const payload = JSON.stringify(github.context.payload, undefined, 2)
   // console.log(`The event payload: ${payload}`);
 } catch (err) {
