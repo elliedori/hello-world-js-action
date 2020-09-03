@@ -5,7 +5,7 @@ const fs = require('fs');
 
 try {
   const jobName = core.getInput('job-name');
-  fs.writeFileSync(`job-${jobName}.txt`, `:no_entry_sign: *${jobName}* failed`);
+  fs.writeFileSync(`job-${jobName}.txt`, `:no_entry_sign: *${jobName}* failed \n`);
 } catch (err) {
   core.setFailed(err.message);
 }
